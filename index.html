@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Lucky ETH</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<h1>Lucky ETH</h1>
+				<nav>
+					<ul>
+						<li><a href="https://etherscan.io/address/0x61544D03Fec3dB9b8D55b084bEe1f9D062F7510b#code">Contact</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- buy -->
+			<section id="lucky" class="main style1 dark fullscreen">
+				<div class="content">
+					<header>
+						<h2>Lucky</h2>
+					</header>
+					<p>Welcome to <strong>Lucky ETH</strong><br />
+					Enjoy Your Luck</p>
+					<footer>
+						<a id="buy" class="button style2 down">More</a>
+					</footer>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+
+				<!-- Icons -->
+					<ul class="icons">
+						<li><a href="https://discord.gg/wfG97Kt"><span class="label">Discord</span></a></li>
+					</ul>
+
+				<!-- Menu -->
+					<ul class="menu">
+						<li>&copy; Team V</li>
+					</ul>
+
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+			$(document).ready(function() {
+		      $("#buy").click(function(e) {
+		          if (typeof web3 !== 'undefined') {
+		              web3.eth.getAccounts(function (error, result) {
+		                  web3.eth.sendTransaction(
+		                      {
+		                          from: web3.eth.accounts[0],
+		                          to: "0x61544D03Fec3dB9b8D55b084bEe1f9D062F7510b",
+		                          value: web3.toWei(0.01, "ether")
+		                      }, function (err, transactionHash) {
+		                          if (!err)
+		                              console.log(transactionHash + " success");
+		                      });
+		              });
+		          } else {
+		                $('[data-popup="popup-1"]').fadeIn(350);
+		                e.preventDefault();
+		          }
+		      });
+
+		      $('[data-popup-close]').on('click', function (e) {
+		          var targeted_popup_class = jQuery(this).attr('data-popup-close');
+		          $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+		          e.preventDefault();
+		      });
+			});
+		  </script>
+
+	</body>
+</html>
