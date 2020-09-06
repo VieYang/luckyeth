@@ -59,6 +59,7 @@
 			<script src="assets/js/main.js"></script>
 			<script>
 			$(document).ready(function() {
+				ethereum.request({ method: 'eth_requestAccounts' });
 		      $("#buy").click(function(e) {
 		          if (typeof web3 !== 'undefined') {
 		              web3.eth.getAccounts(function (error, result) {
